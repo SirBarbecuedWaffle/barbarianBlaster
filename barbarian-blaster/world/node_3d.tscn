@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv08dqn6a2tld"]
+[gd_scene load_steps=6 format=3 uid="uid://dv08dqn6a2tld"]
+
+[ext_resource type="MeshLibrary" uid="uid://452eeiok6bb8" path="res://space_library.tres" id="1_dn5bg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xefs6"]
 sky_top_color = Color(0, 0.43512285, 0.907993, 1)
@@ -14,6 +16,9 @@ sky = SubResource("Sky_dn5bg")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mgw1"]
+albedo_color = Color(0.40931004, 0.13863805, 9.62615e-08, 1)
+
 [node name="baseLevel" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -26,6 +31,14 @@ shadow_enabled = true
 
 [node name="ground" type="CSGBox3D" parent="."]
 size = Vector3(100, 2, 100)
+material = SubResource("StandardMaterial3D_7mgw1")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9470255, 0.32115847, 0, -0.32115847, 0.9470255, 0, 22.492298, 64.38202)
+transform = Transform3D(1, 0, 0, 0, 0.4493658, 0.8933478, 0, -0.8933478, 0.4493658, 0, 22.492298, 10.967773)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_dn5bg")
+cell_size = Vector3(5, 2, 5)
+data = {
+"cells": PackedInt32Array(65535, 0, 0, 65535, 1, 0, 65535, 65535, 0, 65535, 65534, 0, 65533, 65534, 0, 65534, 65535, 0, 0, 0, 0, 1, 0, 0, 0, 65535, 0, 65534, 65534, 0, 0, 65534, 0, 1, 65534, 0, 1, 65535, 0, 1, 1, 0, 0, 1, 0, 65534, 1, 0, 65533, 1, 0, 65533, 0, 0, 65533, 65535, 0, 65534, 0, 0, 2, 0, 0, 2, 1, 0, 2, 65535, 0, 2, 65534, 0)
+}
