@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv08dqn6a2tld"]
+[gd_scene load_steps=8 format=3 uid="uid://dv08dqn6a2tld"]
 
 [ext_resource type="MeshLibrary" uid="uid://452eeiok6bb8" path="res://space_library.tres" id="1_dn5bg"]
 
@@ -17,7 +17,17 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mgw1"]
-albedo_color = Color(0.40931004, 0.13863805, 9.62615e-08, 1)
+albedo_color = Color(0, 0.45384848, 0, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_dn5bg"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -24.960295, 5.6266785e-05, 0.9757085, -1.014, 0, 0.541, 1.014, 0, -0.541, 15.675, 0, 0.908, 0.616, 0, 0.273, -0.616, 0, -0.273, 15.811, 0, -5.853, 1.217, 0, 0.879, -1.217, 0, -0.879, -18.196, 0, -6.178, 0, 0, 0, 0, 0, 0, -18.953, 0, -14.801),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dn5bg"]
+albedo_color = Color(0.40973222, 0.128155, 0, 1)
 
 [node name="baseLevel" type="Node3D"]
 
@@ -40,5 +50,24 @@ transform = Transform3D(1, 0, 0, 0, 0.4493658, 0.8933478, 0, -0.8933478, 0.44936
 mesh_library = ExtResource("1_dn5bg")
 cell_size = Vector3(5, 2, 5)
 data = {
-"cells": PackedInt32Array(65535, 0, 0, 65535, 1, 0, 65535, 65535, 0, 65535, 65534, 0, 65533, 65534, 0, 65534, 65535, 0, 0, 0, 0, 1, 0, 0, 0, 65535, 0, 65534, 65534, 0, 0, 65534, 0, 1, 65534, 0, 1, 65535, 0, 1, 1, 0, 0, 1, 0, 65534, 1, 0, 65533, 1, 0, 65533, 0, 0, 65533, 65535, 0, 65534, 0, 0, 2, 0, 0, 2, 1, 0, 2, 65535, 0, 2, 65534, 0)
+"cells": PackedInt32Array(65535, 1, 0, 65535, 65535, 0, 65534, 65535, 0, 0, 65535, 0, 1, 65535, 0, 1, 1, 0, 0, 1, 0, 65534, 1, 0, 65533, 1, 0, 65533, 65535, 0, 65532, 1, 0, 65531, 1, 0, 65531, 65535, 0, 65531, 65534, 0, 4, 1, 0, 4, 0, 0, 4, 65535, 0, 4, 65533, 0, 3, 65533, 0, 2, 65533, 0, 1, 65533, 0, 0, 65533, 0, 65535, 65533, 0, 65534, 65533, 0, 65533, 65533, 0, 65531, 65533, 0, 2, 1, 0, 3, 1, 0, 65532, 65535, 0, 4, 65534, 0, 2, 65535, 0)
 }
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+curve = SubResource("Curve3D_dn5bg")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]
+polygon = PackedVector2Array(0, 0, 0, 0.2, 3, 0.2, 3, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 0.4
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = SubResource("StandardMaterial3D_dn5bg")
