@@ -62,11 +62,10 @@ data = {
 }
 
 [node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 curve = SubResource("Curve3D_dn5bg")
 
 [node name="road" type="CSGPolygon3D" parent="Path3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.06666994)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.067)
 polygon = PackedVector2Array(-1.5, 0, -1.5, 0.2, 1.5, 0.2, 1.5, 0)
 mode = 2
 path_node = NodePath("..")
@@ -82,6 +81,7 @@ path_joined = false
 material = SubResource("StandardMaterial3D_dn5bg")
 
 [node name="leftEdge" type="CSGPolygon3D" parent="Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 polygon = PackedVector2Array(-2, 0, -2, 0.35, -1.5, 0.35, -1.5, 0)
 mode = 2
 path_node = NodePath("..")
@@ -97,6 +97,7 @@ path_joined = false
 material = SubResource("StandardMaterial3D_75uhf")
 
 [node name="rightEdge" type="CSGPolygon3D" parent="Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 polygon = PackedVector2Array(2, 0, 2, 0.35, 1.5, 0.35, 1.5, 0)
 mode = 2
 path_node = NodePath("..")
@@ -112,7 +113,37 @@ path_joined = false
 material = SubResource("StandardMaterial3D_sp4yb")
 
 [node name="enemy" parent="Path3D" instance=ExtResource("2_7mgw1")]
-transform = Transform3D(-0.0067450893, 0, -0.99995923, 0, 0.99999994, 0, 0.99995905, 0, -0.0067450902, -25.12822, 0, 2.606726)
+transform = Transform3D(-0.0067450837, 0, -0.99995846, 0, 0.99999994, 0, 0.9999583, 0, -0.006745085, -25.12822, 0, 2.606726)
+loop = false
+speed = 15.0
+
+[node name="enemy2" parent="Path3D" instance=ExtResource("2_7mgw1")]
+transform = Transform3D(-0.0050265077, 0, -0.9999689, 0, 0.99999994, 0, 0.9999687, 0, -0.0050265086, -20.128448, 0, 2.6352053)
+progress = 5.0
+loop = false
+speed = 15.0
+
+[node name="enemy3" parent="Path3D" instance=ExtResource("2_7mgw1")]
+transform = Transform3D(-0.003828369, 0, -0.99997413, 0, 0.99999994, 0, 0.99997395, 0, -0.0038283698, -15.128391, 0, 2.657362)
+progress = 10.0
+loop = false
+speed = 15.0
+
+[node name="enemy4" parent="Path3D" instance=ExtResource("2_7mgw1")]
+transform = Transform3D(-0.002489442, 0, -0.9999783, 0, 0.99999994, 0, 0.9999781, 0, -0.0024894425, -10.128397, 0, 2.6732516)
+progress = 15.0
+loop = false
+speed = 15.0
+
+[node name="enemy5" parent="Path3D" instance=ExtResource("2_7mgw1")]
+transform = Transform3D(-0.0008266249, 0, -0.99998057, 0, 0.99999994, 0, 0.9999804, 0, -0.00082662504, -5.128391, 0, 2.6817226)
+progress = 20.0
+loop = false
+speed = 15.0
+
+[node name="enemy6" parent="Path3D" instance=ExtResource("2_7mgw1")]
+transform = Transform3D(0.0014415265, 0, -0.9999803, 0, 0.99999994, 0, 0.9999801, 0, 0.0014415267, -0.12838385, 0, 2.6805258)
+progress = 25.0
 loop = false
 speed = 15.0
 
