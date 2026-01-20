@@ -14,3 +14,7 @@ config/name="barbarianBlaster"
 run/main_scene="uid://dv08dqn6a2tld"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[global_group]
+
+base=""
