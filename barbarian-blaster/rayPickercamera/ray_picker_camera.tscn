@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3n0fby2slbqi"]
+
+[ext_resource type="Script" uid="uid://csjdetrmulmcw" path="res://rayPickercamera/ray_picker_camera.gd" id="1_vcfwq"]
+
+[node name="rayPickerCamera" type="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.4493658, 0.8933478, 0, -0.8933478, 0.4493658, 0, 0, 0)
+script = ExtResource("1_vcfwq")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
