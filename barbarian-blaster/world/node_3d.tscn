@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dv08dqn6a2tld"]
+[gd_scene load_steps=15 format=3 uid="uid://dv08dqn6a2tld"]
 
 [ext_resource type="MeshLibrary" uid="uid://452eeiok6bb8" path="res://space_library.tres" id="1_dn5bg"]
 [ext_resource type="PackedScene" uid="uid://c3n0fby2slbqi" path="res://rayPickercamera/ray_picker_camera.tscn" id="1_sp4yb"]
 [ext_resource type="PackedScene" uid="uid://bwwkcr1cvn71n" path="res://enemy/enemy.tscn" id="2_7mgw1"]
 [ext_resource type="PackedScene" uid="uid://5chbc11g4cem" path="res://base/base.tscn" id="3_75uhf"]
+[ext_resource type="Script" uid="uid://bixkeb8iuruto" path="res://world/turret_manager.gd" id="5_o0ruf"]
+[ext_resource type="PackedScene" uid="uid://cr6t7alfx8jhy" path="res://turret/turret.tscn" id="6_0xahe"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xefs6"]
 sky_top_color = Color(0, 0.43512285, 0.907993, 1)
@@ -52,9 +54,10 @@ shadow_enabled = true
 size = Vector3(100, 2, 100)
 material = SubResource("StandardMaterial3D_7mgw1")
 
-[node name="rayPickerCamera" parent="." node_paths=PackedStringArray("gridMap") instance=ExtResource("1_sp4yb")]
+[node name="rayPickerCamera" parent="." node_paths=PackedStringArray("gridMap", "turretManager") instance=ExtResource("1_sp4yb")]
 transform = Transform3D(1, 0, 0, 0, 0.44936582, 0.89334774, 0, -0.89334774, 0.44936582, 0, 22.492298, 10.967773)
 gridMap = NodePath("../GridMap")
+turretManager = NodePath("../turretManager")
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_dn5bg")
@@ -115,7 +118,7 @@ path_joined = false
 material = SubResource("StandardMaterial3D_sp4yb")
 
 [node name="enemy" parent="Path3D" instance=ExtResource("2_7mgw1")]
-transform = Transform3D(-0.006745081, 0, -0.99995804, 0, 0.99999994, 0, 0.99995786, 0, -0.0067450823, -25.12822, 0, 2.606726)
+transform = Transform3D(-0.0067450795, 0, -0.9999578, 0, 0.99999994, 0, 0.9999576, 0, -0.006745081, -25.12822, 0, 2.606726)
 loop = false
 speed = 15.0
 
@@ -138,7 +141,7 @@ loop = false
 speed = 15.0
 
 [node name="enemy5" parent="Path3D" instance=ExtResource("2_7mgw1")]
-transform = Transform3D(-0.0008266246, 0, -0.99998015, 0, 0.99999994, 0, 0.99998, 0, -0.0008266247, -5.128391, 0, 2.6817226)
+transform = Transform3D(-0.00082662434, 0, -0.9999799, 0, 0.99999994, 0, 0.99997973, 0, -0.0008266245, -5.128391, 0, 2.6817226)
 progress = 20.0
 loop = false
 speed = 15.0
@@ -146,4 +149,6 @@ speed = 15.0
 [node name="base" parent="." instance=ExtResource("3_75uhf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.528, 1, -14.96)
 
-[node name="turret3D" type="Node3D" parent="."]
+[node name="turretManager" type="Node3D" parent="."]
+script = ExtResource("5_o0ruf")
+turret = ExtResource("6_0xahe")
