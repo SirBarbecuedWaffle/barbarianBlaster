@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dv08dqn6a2tld"]
+[gd_scene load_steps=18 format=3 uid="uid://dv08dqn6a2tld"]
 
 [ext_resource type="MeshLibrary" uid="uid://452eeiok6bb8" path="res://space_library.tres" id="1_dn5bg"]
 [ext_resource type="PackedScene" uid="uid://c3n0fby2slbqi" path="res://rayPickercamera/ray_picker_camera.tscn" id="1_sp4yb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://5chbc11g4cem" path="res://base/base.tscn" id="3_75uhf"]
 [ext_resource type="Script" uid="uid://bixkeb8iuruto" path="res://turret/turret_manager.gd" id="5_o0ruf"]
 [ext_resource type="PackedScene" uid="uid://cr6t7alfx8jhy" path="res://turret/turret.tscn" id="6_0xahe"]
+[ext_resource type="Script" uid="uid://dqp38bf3n14y1" path="res://bank/bank.gd" id="8_itlv6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xefs6"]
 sky_top_color = Color(0, 0.43512285, 0.907993, 1)
@@ -40,6 +41,12 @@ albedo_color = Color(0.81885767, 0.29317337, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sp4yb"]
 albedo_color = Color(0.8504089, 0.30574432, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4xmp5"]
+font_size = 64
+font_color = Color(1, 0.75686276, 0, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
 
 [node name="level" type="Node3D"]
 
@@ -131,5 +138,23 @@ maxHealth = 6.0
 script = ExtResource("5_o0ruf")
 turret = ExtResource("6_0xahe")
 pathe = NodePath("../enemyPath")
+
+[node name="bank" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+script = ExtResource("8_itlv6")
+
+[node name="Label" type="Label" parent="bank"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Gold: 150"
+label_settings = SubResource("LabelSettings_4xmp5")
+vertical_alignment = 2
 
 [connection signal="timeout" from="enemyPath/enemySpawnTimer" to="enemyPath" method="_on_enemy_spawn_timer_timeout"]
