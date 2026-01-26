@@ -4,6 +4,7 @@ class_name Base
 @export var maxHealth:=5.0
 var health:=0.0
 func _ready() -> void:
+	Engine.time_scale=1
 	health=maxHealth
 	label_3d.text=str(int(health))+"/"+str(int(maxHealth))
 	label_3d.modulate=Color("white")

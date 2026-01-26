@@ -118,7 +118,7 @@ path_joined = false
 material = SubResource("StandardMaterial3D_sp4yb")
 
 [node name="enemy" parent="Path3D" instance=ExtResource("2_7mgw1")]
-transform = Transform3D(-0.0067450777, 0, -0.99995756, 0, 0.99999994, 0, 0.9999574, 0, -0.006745079, -25.12822, 0, 2.606726)
+transform = Transform3D(-0.006745074, 0, -0.99995697, 0, 0.99999994, 0, 0.9999568, 0, -0.006745075, -25.12822, 0, 2.606726)
 loop = false
 speed = 15.0
 
@@ -141,7 +141,7 @@ loop = false
 speed = 15.0
 
 [node name="enemy5" parent="Path3D" instance=ExtResource("2_7mgw1")]
-transform = Transform3D(-0.00082662416, 0, -0.9999797, 0, 0.99999994, 0, 0.9999795, 0, -0.0008266243, -5.128391, 0, 2.6817226)
+transform = Transform3D(-0.00082662364, 0, -0.9999791, 0, 0.99999994, 0, 0.9999789, 0, -0.0008266238, -5.128391, 0, 2.6817226)
 progress = 20.0
 loop = false
 speed = 15.0
@@ -150,6 +150,7 @@ speed = 15.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.528, 1, -14.96)
 maxHealth = 6.0
 
-[node name="turretManager" type="Node3D" parent="."]
+[node name="turretManager" type="Node3D" parent="." node_paths=PackedStringArray("pathe")]
 script = ExtResource("5_o0ruf")
 turret = ExtResource("6_0xahe")
+pathe = NodePath("../Path3D")

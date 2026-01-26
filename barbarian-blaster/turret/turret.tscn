@@ -19,7 +19,7 @@ height = 0.25
 script = ExtResource("1_vfthy")
 
 [node name="turretBase" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, 1, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
 mesh = SubResource("CylinderMesh_pweg5")
 
 [node name="turretTop" type="MeshInstance3D" parent="turretBase"]
@@ -31,6 +31,7 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0
 mesh = SubResource("CylinderMesh_2876l")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
