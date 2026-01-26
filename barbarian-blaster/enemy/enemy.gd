@@ -1,7 +1,7 @@
 extends PathFollow3D
 class_name Enemy
 ##speed in m/s for the enemy
-@export var speed:=1.0
+@export var speed:=20.0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var health:int = 50:
 	set(new_health):

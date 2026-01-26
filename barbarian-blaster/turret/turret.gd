@@ -5,6 +5,7 @@ var target : Node3D
 @export var range:=10.0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var turret_base: MeshInstance3D = $turretBase
+@onready var timer: Timer = $Timer
 
 func _physics_process(delta: float) -> void:
 	target=find_best_target()
@@ -24,7 +25,8 @@ func _on_timer_timeout() -> void:
 func find_best_target()->Enemy:
 	var bestEnemy : PathFollow3D = null
 	for f in enemyPath.get_children():
-		if f.global_position.distance_to(global_position)<range && f is Enemy:
-			if bestEnemy==null || f.progress>bestEnemy.progress:
-				bestEnemy=f
+		if f is Enemy:
+			if f.global_position.distance_to(global_position)<range:
+				if bestEnemy==null || f.progress>bestEnemy.progress:
+					bestEnemy=f
 	return bestEnemy

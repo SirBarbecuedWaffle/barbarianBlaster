@@ -58,6 +58,7 @@ _data = {
 
 [node name="enemy" type="PathFollow3D"]
 transform = Transform3D(-0.011944411, 1.419912e-06, -0.99992865, -5.684342e-14, 1, 1.4200133e-06, 0.99992865, 1.696128e-08, -0.011944411, 0, 0, 0)
+loop = false
 script = ExtResource("1_2mvqj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
