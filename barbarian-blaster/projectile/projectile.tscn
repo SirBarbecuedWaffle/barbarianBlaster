@@ -15,6 +15,7 @@ material = SubResource("StandardMaterial3D_ml5en")
 [node name="Projectile" type="Area3D"]
 top_level = true
 script = ExtResource("1_6aa83")
+speed = 30.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_6aa83")
