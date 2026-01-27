@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dv08dqn6a2tld"]
+[gd_scene load_steps=19 format=3 uid="uid://dv08dqn6a2tld"]
 
 [ext_resource type="MeshLibrary" uid="uid://452eeiok6bb8" path="res://space_library.tres" id="1_dn5bg"]
 [ext_resource type="PackedScene" uid="uid://c3n0fby2slbqi" path="res://rayPickercamera/ray_picker_camera.tscn" id="1_sp4yb"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bixkeb8iuruto" path="res://turret/turret_manager.gd" id="5_o0ruf"]
 [ext_resource type="PackedScene" uid="uid://cr6t7alfx8jhy" path="res://turret/turret.tscn" id="6_0xahe"]
 [ext_resource type="Script" uid="uid://dqp38bf3n14y1" path="res://bank/bank.gd" id="8_itlv6"]
+[ext_resource type="PackedScene" uid="uid://cnpf7uqwt1xy8" path="res://Managers/difficulty_manager.tscn" id="9_6ywa2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xefs6"]
 sky_top_color = Color(0, 0.43512285, 0.907993, 1)
@@ -74,12 +75,14 @@ data = {
 "cells": PackedInt32Array(65535, 1, 0, 65535, 65535, 0, 65534, 65535, 0, 0, 65535, 0, 1, 65535, 0, 1, 1, 0, 0, 1, 0, 65534, 1, 0, 65533, 1, 0, 65533, 65535, 0, 65532, 1, 0, 65531, 1, 0, 65531, 65535, 0, 65531, 65534, 0, 4, 1, 0, 4, 0, 0, 4, 65535, 0, 4, 65533, 0, 3, 65533, 0, 2, 65533, 0, 1, 65533, 0, 0, 65533, 0, 65535, 65533, 0, 65534, 65533, 0, 65533, 65533, 0, 65531, 65533, 0, 2, 1, 0, 3, 1, 0, 65532, 65535, 0, 4, 65534, 0, 2, 65535, 0)
 }
 
-[node name="enemyPath" type="Path3D" parent="."]
+[node name="enemyPath" type="Path3D" parent="." node_paths=PackedStringArray("difficultyManager")]
 curve = SubResource("Curve3D_dn5bg")
 script = ExtResource("3_0xahe")
 spawnedEnemy = ExtResource("2_7mgw1")
+difficultyManager = NodePath("../DifficultyManager")
 
 [node name="enemySpawnTimer" type="Timer" parent="enemyPath"]
+wait_time = 2.0
 autostart = true
 
 [node name="road" type="CSGPolygon3D" parent="enemyPath"]
@@ -156,5 +159,7 @@ size_flags_vertical = 8
 text = "Gold: 150"
 label_settings = SubResource("LabelSettings_4xmp5")
 vertical_alignment = 2
+
+[node name="DifficultyManager" parent="." instance=ExtResource("9_6ywa2")]
 
 [connection signal="timeout" from="enemyPath/enemySpawnTimer" to="enemyPath" method="_on_enemy_spawn_timer_timeout"]
