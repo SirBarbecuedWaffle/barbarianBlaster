@@ -163,3 +163,4 @@ vertical_alignment = 2
 [node name="DifficultyManager" parent="." unique_id=1101353831 instance=ExtResource("9_6ywa2")]
 
 [connection signal="timeout" from="enemyPath/enemySpawnTimer" to="enemyPath" method="_on_enemy_spawn_timer_timeout"]
+[connection signal="stop_spawning_enemies" from="DifficultyManager" to="enemyPath" method="_on_difficulty_manager_stop_spawning_enemies"]

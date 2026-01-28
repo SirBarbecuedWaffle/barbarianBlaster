@@ -13,3 +13,7 @@ func spawnEnemy()->void:
 
 func _on_enemy_spawn_timer_timeout() -> void:
 	spawnEnemy()
+
+
+func _on_difficulty_manager_stop_spawning_enemies() -> void:
+	enemy_spawn_timer.stop()

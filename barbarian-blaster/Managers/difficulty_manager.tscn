@@ -18,3 +18,5 @@ spawn_time_curve = SubResource("Curve_u5hlp")
 enemy_health_curve = SubResource("Curve_pgrat")
 
 [node name="Timer" type="Timer" parent="." unique_id=2070075945]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
