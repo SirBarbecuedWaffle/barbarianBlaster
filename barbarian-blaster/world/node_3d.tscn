@@ -49,6 +49,9 @@ font_color = Color(1, 0.75686276, 0, 1)
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_6ywa2"]
+font_size = 64
+
 [node name="level" type="Node3D" unique_id=1237125204]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2120671054]
@@ -164,12 +167,61 @@ vertical_alignment = 2
 [node name="DifficultyManager" parent="." unique_id=1101353831 instance=ExtResource("9_6ywa2")]
 
 [node name="victoryLayer" type="CanvasLayer" parent="." unique_id=1482569948]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="victoryLayer" unique_id=1219345713]
-offset_right = 1183.0
-offset_bottom = 670.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 0.3882353)
+
+[node name="CenterContainer" type="CenterContainer" parent="victoryLayer/ColorRect" unique_id=626589090]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -129.0
+offset_right = 153.0
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="victoryLayer/ColorRect/CenterContainer" unique_id=8744363]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="victoryLayer/ColorRect/CenterContainer/PanelContainer" unique_id=1117045166]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="victoryLayer/ColorRect/CenterContainer/PanelContainer/VBoxContainer" unique_id=2112126663]
+layout_mode = 2
+text = "Victory"
+label_settings = SubResource("LabelSettings_6ywa2")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="victoryLayer/ColorRect/CenterContainer/PanelContainer/VBoxContainer" unique_id=1759896328]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 32
+
+[node name="RetryButton" type="Button" parent="victoryLayer/ColorRect/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=879410621]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+text = "Retry"
+
+[node name="QuitButton" type="Button" parent="victoryLayer/ColorRect/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1929223927]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+text = "Quit"
 
 [connection signal="timeout" from="enemyPath/enemySpawnTimer" to="enemyPath" method="_on_enemy_spawn_timer_timeout"]
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="enemyPath" method="_on_difficulty_manager_stop_spawning_enemies"]

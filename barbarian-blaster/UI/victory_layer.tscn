@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://didh4eww4fb31"]
+
+[ext_resource type="Script" uid="uid://c73jkww7gg0xe" path="res://UI/victory_layer.gd" id="1_4etjl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ywa2"]
+font_size = 64
+
+[node name="victoryLayer" type="CanvasLayer" unique_id=840568917]
+script = ExtResource("1_4etjl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1192578679]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3882353)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect" unique_id=205171165]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -129.0
+offset_right = 153.0
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect/CenterContainer" unique_id=1940977752]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer/PanelContainer" unique_id=1470655813]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/PanelContainer/VBoxContainer" unique_id=322759049]
+layout_mode = 2
+text = "Victory"
+label_settings = SubResource("LabelSettings_6ywa2")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/CenterContainer/PanelContainer/VBoxContainer" unique_id=1795281152]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 32
+
+[node name="RetryButton" type="Button" parent="ColorRect/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=793120525]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+text = "Retry"
+
+[node name="QuitButton" type="Button" parent="ColorRect/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1910027881]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="ColorRect/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
