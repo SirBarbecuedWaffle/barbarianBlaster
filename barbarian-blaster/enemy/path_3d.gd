@@ -5,9 +5,9 @@ extends Path3D
 
 func spawnEnemy()->void:
 	var newEnemy=spawnedEnemy.instantiate()
-	add_child(newEnemy)
 	newEnemy.progress=0
 	newEnemy.max_health=difficultyManager.get_enemy_health()
+	add_child(newEnemy)
 	enemy_spawn_timer.wait_time=difficultyManager.get_spawn_time()
 
 

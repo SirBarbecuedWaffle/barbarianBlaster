@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmj6tnhblb4a"]
+[gd_scene format=3 uid="uid://bmj6tnhblb4a"]
 
 [ext_resource type="Script" uid="uid://cro8yprlj2ocr" path="res://projectile/projectile.gd" id="1_6aa83"]
 
@@ -12,18 +12,18 @@ material = SubResource("StandardMaterial3D_ml5en")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_makwg"]
 
-[node name="Projectile" type="Area3D"]
+[node name="Projectile" type="Area3D" unique_id=2032887633]
 top_level = true
 script = ExtResource("1_6aa83")
 speed = 30.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1100381476]
 mesh = SubResource("SphereMesh_6aa83")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1216199166]
 shape = SubResource("SphereShape3D_makwg")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1021098374]
 wait_time = 2.0
 autostart = true
 

@@ -6,7 +6,7 @@ class_name Enemy
 @export var speed:=8.0
 @export var defeatedGold:=25
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-var health:int = 50:
+var health:int = 10:
 	set(new_health):
 		if health>new_health:
 			animation_player.play("hurt")
@@ -14,9 +14,11 @@ var health:int = 50:
 		if health<1:
 			queue_free()
 			bankRef.gold+=defeatedGold
-@export var max_health:=50
+@export var max_health:int
 @onready var base : Base = get_tree().get_first_node_in_group("base")
 
+func _ready() -> void:
+	health=max_health
 
 func _process(delta: float) -> void:
 	if !hurt_highlight.visible:

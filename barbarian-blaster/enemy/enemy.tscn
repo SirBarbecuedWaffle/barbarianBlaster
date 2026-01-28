@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwwkcr1cvn71n"]
+[gd_scene format=3 uid="uid://bwwkcr1cvn71n"]
 
 [ext_resource type="Script" uid="uid://cfms5vrwhfogm" path="res://enemy/enemy.gd" id="1_2mvqj"]
 
@@ -56,28 +56,26 @@ _data = {
 &"hurt": SubResource("Animation_2mvqj")
 }
 
-[node name="enemy" type="PathFollow3D"]
+[node name="enemy" type="PathFollow3D" unique_id=1008047995]
 transform = Transform3D(-0.011944411, 1.419912e-06, -0.99992865, -5.684342e-14, 1, 1.4200133e-06, 0.99992865, 1.696128e-08, -0.011944411, 0, 0, 0)
 loop = false
 script = ExtResource("1_2mvqj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1636717168]
 transform = Transform3D(1, 0, 0, 3.5527137e-15, 1, -2.5673907e-15, 0, -2.5673907e-15, 1, -1.1776975e-13, 1.962715, 2.7870813e-06)
 mesh = SubResource("CapsuleMesh_dn5bg")
 
-[node name="hurtHighlight" type="MeshInstance3D" parent="."]
+[node name="hurtHighlight" type="MeshInstance3D" parent="." unique_id=2045484203]
 transform = Transform3D(1, 0, 0, 3.5527137e-15, 1, -2.5673907e-15, 0, -2.5673907e-15, 1, -1.1776975e-13, 1.962715, 2.7870813e-06)
 visible = false
 mesh = SubResource("CapsuleMesh_dn5bg")
 surface_material_override/0 = SubResource("StandardMaterial3D_ofsxj")
 
-[node name="enemyArea3D" type="Area3D" parent="." groups=["enemy_area"]]
+[node name="enemyArea3D" type="Area3D" parent="." unique_id=990358421 groups=["enemy_area"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="enemyArea3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enemyArea3D" unique_id=1871557925]
 transform = Transform3D(1, 0, 0, 3.3217873e-13, 1, -2.5673907e-15, 0, -2.5673907e-15, 1, -1.1568524e-13, 1.960763, 2.576345e-06)
 shape = SubResource("CapsuleShape3D_2mvqj")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ofsxj")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1448164956]
+libraries/ = SubResource("AnimationLibrary_ofsxj")
