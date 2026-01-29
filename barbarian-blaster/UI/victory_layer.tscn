@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://didh4eww4fb31"]
 
 [ext_resource type="Script" uid="uid://c73jkww7gg0xe" path="res://UI/victory_layer.gd" id="1_4etjl"]
+[ext_resource type="Texture2D" uid="uid://deeappy1efohw" path="res://Assets/star.png" id="2_eu0p7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6ywa2"]
-font_size = 64
+font_size = 110
+font_color = Color(0.90533507, 0.9053352, 0.90533507, 1)
 
 [node name="victoryLayer" type="CanvasLayer" unique_id=840568917]
 script = ExtResource("1_4etjl")
@@ -31,13 +33,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="ColorRect/CenterContainer" unique_id=1940977752]
-custom_minimum_size = Vector2(300, 300)
+custom_minimum_size = Vector2(300, 500)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer/PanelContainer" unique_id=1470655813]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme_override_constants/separation = 5
 alignment = 1
 
 [node name="Label" type="Label" parent="ColorRect/CenterContainer/PanelContainer/VBoxContainer" unique_id=322759049]
@@ -46,8 +49,67 @@ text = "Victory"
 label_settings = SubResource("LabelSettings_6ywa2")
 horizontal_alignment = 1
 
+[node name="starContainer" type="HBoxContainer" parent="ColorRect/CenterContainer/PanelContainer/VBoxContainer" unique_id=1292417437]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Star1" type="TextureRect" parent="ColorRect/CenterContainer/PanelContainer/VBoxContainer/starContainer" unique_id=221189193]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("2_eu0p7")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Star2" type="TextureRect" parent="ColorRect/CenterContainer/PanelContainer/VBoxContainer/starContainer" unique_id=45428233]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("2_eu0p7")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Star3" type="TextureRect" parent="ColorRect/CenterContainer/PanelContainer/VBoxContainer/starContainer" unique_id=346503211]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("2_eu0p7")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="shh2" type="Label" parent="ColorRect/CenterContainer/PanelContainer/VBoxContainer" unique_id=910784488]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="survivedLabel" type="Label" parent="ColorRect/CenterContainer/PanelContainer/VBoxContainer" unique_id=2049162051]
+layout_mode = 2
+text = "Survived +1"
+horizontal_alignment = 1
+
+[node name="healthLabel" type="Label" parent="ColorRect/CenterContainer/PanelContainer/VBoxContainer" unique_id=934766855]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Full Health +1"
+horizontal_alignment = 1
+
+[node name="goldLabel" type="Label" parent="ColorRect/CenterContainer/PanelContainer/VBoxContainer" unique_id=732762858]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Money Money Money +1"
+horizontal_alignment = 1
+
+[node name="shh" type="Label" parent="ColorRect/CenterContainer/PanelContainer/VBoxContainer" unique_id=1246943459]
+layout_mode = 2
+horizontal_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/CenterContainer/PanelContainer/VBoxContainer" unique_id=1795281152]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -56,11 +118,14 @@ theme_override_constants/separation = 32
 [node name="RetryButton" type="Button" parent="ColorRect/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=793120525]
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
+theme_override_font_sizes/font_size = 64
 text = "Retry"
 
 [node name="QuitButton" type="Button" parent="ColorRect/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1910027881]
-custom_minimum_size = Vector2(100, 40)
+custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
+theme_override_font_sizes/font_size = 64
 text = "Quit"
 
 [connection signal="pressed" from="ColorRect/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

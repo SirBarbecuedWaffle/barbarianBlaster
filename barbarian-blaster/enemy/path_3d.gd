@@ -1,8 +1,10 @@
 extends Path3D
 @export var spawnedEnemy : PackedScene
-@onready var enemy_spawn_timer: Timer = $enemySpawnTimer
 @export var difficultyManager:Node
 @export var victoryLayer : CanvasLayer
+
+@onready var enemy_spawn_timer: Timer = $enemySpawnTimer
+
 
 func spawnEnemy()->void:
 	var newEnemy=spawnedEnemy.instantiate()
@@ -25,4 +27,5 @@ func enemy_defeated()->void:
 		for ene in get_children():
 			if ene is Enemy:
 				return
-		victoryLayer.visible=true
+		victoryLayer.victory()
+	
