@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://btv24qu0dqkik"]
+[gd_scene format=3 uid="uid://btv24qu0dqkik"]
+
+[ext_resource type="PackedScene" uid="uid://k4xhp0qpeqrn" path="res://Assets/Tree.glb" id="1_l0rv8"]
+[ext_resource type="PackedScene" uid="uid://bqbwsu7nn11j8" path="res://Assets/Rocks.glb" id="2_han8f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gl8b"]
-albedo_color = Color(0.78352344, 0.7835234, 0.7835234, 1)
+blend_mode = 1
+albedo_color = Color(0.11415807, 0.11415807, 0.11415819, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_gcj72"]
 material = SubResource("StandardMaterial3D_7gl8b")
@@ -11,27 +15,32 @@ size = Vector3(5, 0.2, 5)
 data = PackedVector3Array(-2.5, 0.099999994, 2.5, 2.5, 0.099999994, 2.5, -2.5, -0.099999994, 2.5, 2.5, 0.099999994, 2.5, 2.5, -0.099999994, 2.5, -2.5, -0.099999994, 2.5, 2.5, 0.099999994, -2.5, -2.5, 0.099999994, -2.5, 2.5, -0.099999994, -2.5, -2.5, 0.099999994, -2.5, -2.5, -0.099999994, -2.5, 2.5, -0.099999994, -2.5, 2.5, 0.099999994, 2.5, 2.5, 0.099999994, -2.5, 2.5, -0.099999994, 2.5, 2.5, 0.099999994, -2.5, 2.5, -0.099999994, -2.5, 2.5, -0.099999994, 2.5, -2.5, 0.099999994, -2.5, -2.5, 0.099999994, 2.5, -2.5, -0.099999994, -2.5, -2.5, 0.099999994, 2.5, -2.5, -0.099999994, 2.5, -2.5, -0.099999994, -2.5, 2.5, 0.099999994, 2.5, -2.5, 0.099999994, 2.5, 2.5, 0.099999994, -2.5, -2.5, 0.099999994, 2.5, -2.5, 0.099999994, -2.5, 2.5, 0.099999994, -2.5, -2.5, -0.099999994, 2.5, 2.5, -0.099999994, 2.5, -2.5, -0.099999994, -2.5, 2.5, -0.099999994, 2.5, 2.5, -0.099999994, -2.5, -2.5, -0.099999994, -2.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcj72"]
-albedo_color = Color(0.3106171, 0.31061715, 0.31061688, 1)
+transparency = 1
+albedo_color = Color(0.30980393, 0.30980393, 0.30980393, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7gl8b"]
 material = SubResource("StandardMaterial3D_gcj72")
 size = Vector3(5, 0.2, 5)
 
-[node name="SpaceLibrary" type="Node3D"]
+[node name="SpaceLibrary" type="Node3D" unique_id=1587430468]
 
-[node name="freeSpace" type="MeshInstance3D" parent="."]
+[node name="freeSpace" type="MeshInstance3D" parent="." unique_id=1489203789]
 mesh = SubResource("BoxMesh_gcj72")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="freeSpace"]
+[node name="StaticBody3D" type="StaticBody3D" parent="freeSpace" unique_id=524227765]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="freeSpace/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="freeSpace/StaticBody3D" unique_id=1385178138]
 shape = SubResource("ConcavePolygonShape3D_gcj72")
 
-[node name="turretBase" type="MeshInstance3D" parent="."]
+[node name="turretBase" type="MeshInstance3D" parent="." unique_id=1899748931]
 mesh = SubResource("BoxMesh_7gl8b")
 skeleton = NodePath("../freeSpace")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="turretBase"]
+[node name="StaticBody3D" type="StaticBody3D" parent="turretBase" unique_id=349413212]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="turretBase/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turretBase/StaticBody3D" unique_id=1889495748]
 shape = SubResource("ConcavePolygonShape3D_gcj72")
+
+[node name="Tree" parent="." unique_id=1784659211 instance=ExtResource("1_l0rv8")]
+
+[node name="Rocks" parent="." unique_id=2041970797 instance=ExtResource("2_han8f")]
