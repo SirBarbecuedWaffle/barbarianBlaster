@@ -1,19 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cr6t7alfx8jhy"]
+[gd_scene format=3 uid="uid://cr6t7alfx8jhy"]
 
 [ext_resource type="Script" uid="uid://ktiefksict5w" path="res://turret/turret.gd" id="1_vfthy"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_pweg5"]
-height = 0.5
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_vfthy"]
-top_radius = 0.6
-bottom_radius = 0.6
-height = 0.5
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_2876l"]
-top_radius = 0.1
-bottom_radius = 0.2
-height = 0.25
+[ext_resource type="PackedScene" uid="uid://bs26r40m26par" path="res://Assets/TurretBase.glb" id="2_1p48p"]
+[ext_resource type="PackedScene" uid="uid://dqoi5ww3o6lhr" path="res://Assets/Cannon.glb" id="3_uqrhp"]
 
 [sub_resource type="Animation" id="Animation_2876l"]
 length = 0.001
@@ -52,28 +41,25 @@ _data = {
 &"fire": SubResource("Animation_vfthy")
 }
 
-[node name="Turret" type="Node3D"]
+[node name="Turret" type="Node3D" unique_id=1619646238]
 script = ExtResource("1_vfthy")
 
-[node name="turretBase" type="MeshInstance3D" parent="."]
+[node name="turretBase" type="Node3D" parent="." unique_id=2013179925]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.5, 0)
-mesh = SubResource("CylinderMesh_pweg5")
 
-[node name="turretTop" type="MeshInstance3D" parent="turretBase"]
+[node name="turretTop" type="Node3D" parent="turretBase" unique_id=1807270242]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("CylinderMesh_vfthy")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="turretBase/turretTop"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.68831503)
-mesh = SubResource("CylinderMesh_2876l")
+[node name="Cannon" parent="turretBase/turretTop" unique_id=574855103 instance=ExtResource("3_uqrhp")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.33498442, 0)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1782624834]
 wait_time = 0.3
 autostart = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_1p48p")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1884327534]
+libraries/ = SubResource("AnimationLibrary_1p48p")
+
+[node name="TurretMesh" parent="." unique_id=723001612 instance=ExtResource("2_1p48p")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
