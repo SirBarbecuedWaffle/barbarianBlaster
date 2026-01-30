@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://5chbc11g4cem"]
 
 [ext_resource type="Script" uid="uid://y76hk7whmbmw" path="res://base/base.gd" id="1_mftly"]
+[ext_resource type="FontFile" uid="uid://bpddwl5jm4jkt" path="res://fonts/LibreBarcode39Extended-Regular.ttf" id="2_1ggjv"]
 [ext_resource type="PackedScene" uid="uid://54fkg5utrvdf" path="res://Assets/Base.glb" id="2_m7viw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o0ruf"]
@@ -23,6 +24,7 @@ billboard = 1
 no_depth_test = true
 render_priority = 1
 text = "5"
+font = ExtResource("2_1ggjv")
 font_size = 500
 outline_size = 100
 

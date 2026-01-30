@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://bgc60ktmqi5t0" path="res://Managers/difficulty_manager.gd" id="1_u5hlp"]
 
 [sub_resource type="Curve" id="Curve_u5hlp"]
-_limits = [0.25, 2.0, 0.0, 1.0]
-_data = [Vector2(0, 2), 0.0, -1.7517861, 0, 1, Vector2(0.995976, 0.2552632), -1.7517861, 0.0, 1, 0]
-point_count = 2
+_limits = [0.25, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 2.926723), 0.0, -3.577626, 0, 1, Vector2(0.49668875, 1.1497564), 0.0, 0.0, 0, 0, Vector2(0.995976, 0.2552632), -1.7915404, 0.0, 1, 0]
+point_count = 3
 
 [sub_resource type="Curve" id="Curve_pgrat"]
 _limits = [10.0, 150.0, 0.0, 1.0]
-_data = [Vector2(0, 10), 0.0, 140.0, 0, 1, Vector2(1, 150), 140.0, 0.0, 1, 0]
-point_count = 2
+_data = [Vector2(0, 10), 0.0, 96.96227, 0, 1, Vector2(0.7417218, 81.91903), 0.0, 0.0, 0, 0, Vector2(1, 150), 263.59552, 0.0, 1, 0]
+point_count = 3
 
 [node name="DifficultyManager" type="Node" unique_id=1411798970]
 script = ExtResource("1_u5hlp")

@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://beexkn07bayf4"]
+
+[ext_resource type="FontFile" uid="uid://bpddwl5jm4jkt" path="res://fonts/LibreBarcode39Extended-Regular.ttf" id="1_653m2"]
+
+[resource]
+default_font = ExtResource("1_653m2")

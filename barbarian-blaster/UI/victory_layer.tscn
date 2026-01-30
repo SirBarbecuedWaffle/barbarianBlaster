@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c73jkww7gg0xe" path="res://UI/victory_layer.gd" id="1_4etjl"]
 [ext_resource type="Texture2D" uid="uid://deeappy1efohw" path="res://Assets/star.png" id="2_eu0p7"]
+[ext_resource type="Theme" uid="uid://beexkn07bayf4" path="res://enemy/DingTheme.tres" id="2_h85xe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6ywa2"]
 font_size = 110
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_h85xe")
 color = Color(0, 0, 0, 0.3882353)
 
 [node name="CenterContainer" type="CenterContainer" parent="ColorRect" unique_id=205171165]
@@ -25,10 +27,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -147.0
-offset_top = -129.0
-offset_right = 153.0
-offset_bottom = 171.0
+offset_left = -193.0
+offset_top = -229.0
+offset_right = 199.0
+offset_bottom = 271.0
 grow_horizontal = 2
 grow_vertical = 2
 

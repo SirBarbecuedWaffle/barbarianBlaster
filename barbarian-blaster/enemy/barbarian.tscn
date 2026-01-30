@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://q2qcnk505bf7"]
+
+[ext_resource type="PackedScene" uid="uid://lxwvwctughum" path="res://Assets/Barbarian.glb" id="1_kgiot"]
+
+[node name="Barbarian" unique_id=92627581 instance=ExtResource("1_kgiot")]
+
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1235631283) index="0" unique_id=491143797]
+bones/0/position = Vector3(2.3780232e-15, -0.4197828, 0.39184067)
+bones/0/rotation = Quaternion(0.12602457, -0.040357925, 0.0051313117, 0.99119264)
+bones/1/rotation = Quaternion(-0.08673358, -0.09395456, 0.013967115, 0.99169296)
+bones/2/rotation = Quaternion(0.0029166946, 0.0787525, -0.60116273, 0.7952314)
+bones/3/rotation = Quaternion(0.26176363, -0.28938878, -0.5663007, 0.72597355)
+bones/4/rotation = Quaternion(0.5196167, 0.12346995, -0.3082016, 0.78725183)
+bones/6/rotation = Quaternion(0.04075833, 0.10781958, 0.0027629707, 0.99333084)
+bones/7/rotation = Quaternion(-0.09989475, -0.21241881, 0.5840114, 0.777065)
+bones/8/rotation = Quaternion(-0.031027868, -0.4829769, 0.4640336, 0.7419188)
+bones/9/rotation = Quaternion(0.5573843, 0.21887942, 0.15200357, 0.7863266)
+bones/10/position = Vector3(-4.4703484e-08, -0.41978282, 0.3918407)
+bones/10/rotation = Quaternion(0.5659606, 0.36775544, 0.59370244, -0.4381346)
+bones/11/rotation = Quaternion(-0.53260255, 0.09212025, 0.10131339, 0.83521503)
+bones/12/rotation = Quaternion(-0.130127, -0.027616711, 0.6544938, 0.74427295)
+bones/13/rotation = Quaternion(-0.008443638, -0.049464293, -0.6432284, 0.76402825)
+bones/14/position = Vector3(-7.4505806e-08, -0.41978285, 0.3918407)
+bones/14/rotation = Quaternion(-0.6311462, 0.23918629, 0.67320025, 0.30206937)
+bones/15/rotation = Quaternion(-0.39420065, 0.18237808, 0.2832794, 0.85504204)
+bones/16/rotation = Quaternion(-0.027108014, -0.0023898836, -0.0026819133, 0.99962604)
+bones/17/rotation = Quaternion(-0.026964908, 0.022262152, 0.7323006, 0.6800833)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=302931786]
+autoplay = &"Run"

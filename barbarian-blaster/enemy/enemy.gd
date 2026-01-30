@@ -4,7 +4,7 @@ class_name Enemy
 @onready var hurt_highlight: MeshInstance3D = $hurtHighlight
 @onready var bankRef=get_tree().get_first_node_in_group("bank")
 @export var speed:=8.0
-@export var defeatedGold:=25
+@export var defeatedGold:=10
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var health:int = 10:
 	set(new_health):
@@ -21,8 +21,7 @@ func _ready() -> void:
 	health=max_health
 
 func _process(delta: float) -> void:
-	if !hurt_highlight.visible:
-		progress+=speed*delta
+	progress+=speed*delta
 	if progress_ratio==1.0:
 		base.take_damage()
 		queue_free()
